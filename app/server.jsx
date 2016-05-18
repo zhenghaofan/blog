@@ -63,7 +63,6 @@ export default function render(req, res) {
     } else if (props) {
       // This method waits for all render component
       // promises to resolve before returning to browser
-      console.log('render begin');
       preRenderMiddleware(
         store.dispatch,
         props.components,
@@ -71,9 +70,6 @@ export default function render(req, res) {
       )
       .then(() => {
         const initialState = store.getState();
-        console.log('initialState: ');
-        console.log(initialState);
-        console.log('initialState end');
         const componentHTML = renderToString(
           <Provider store={store}>
             <RouterContext {...props} />

@@ -13,13 +13,13 @@ if (__DEVSERVER__) {
 const Meta = () => (
   <Helmet
     htmlAttributes={{"lang": "en", "amp": undefined}}
-    title="React Webpack Node" meta={config.meta}
+    title="Billa's Blog" meta={config.meta}
     link={config.link}
   />
 )
 
 
 ReactDOMServer.renderToString(<Meta />);
-const header = Helmet.rewind();
+const header = Helmet.rewind(); //call rewind() after ReactDOM.renderToString or ReactDOM.renderToStaticMarkup to get the head data for use in your prerender.
 
 export default header;
