@@ -22,7 +22,10 @@ axios.defaults.baseURL = `http://${clientConfig.host}:${clientConfig.port}`;
  * and pass it into the Router.run function.
  */
 export default function render(req, res) {
+  console.log('render begin');
   const authenticated = req.isAuthenticated();
+  console.log('req:');
+  console.log(req);
   const history = createMemoryHistory();
   const store = configureStore({
     user: {
@@ -63,12 +66,18 @@ export default function render(req, res) {
     } else if (props) {
       // This method waits for all render component
       // promises to resolve before returning to browser
+      console.log('components:');
+      console.log(props.components);
+      console.log('params');
+      console.log(props.params);
       preRenderMiddleware(
         store.dispatch,
         props.components,
         props.params
       )
       .then(() => {
+        console.log('state:');
+        console.log(store.getState());
         const initialState = store.getState();
         const componentHTML = renderToString(
           <Provider store={store}>

@@ -57,6 +57,7 @@ class Vote extends Component {
 
 
   render() {
+    console.log(this.props);
     const {newTopic, topics} = this.props;
     return (
       <div className={cx('vote')}>

@@ -11,6 +11,9 @@
 export default function preRenderMiddleware(dispatch, components, params) {
   return Promise.all(
     components.reduce((previous, current) => {
+      console.log('in preRenderMiddleware');
+      console.log('need:');
+      console.log(current.need);
       return (current.need || []).concat(previous);
     }, []).map(need => dispatch(need(params)))
   );
