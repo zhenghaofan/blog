@@ -1,0 +1,24 @@
+.article-form {
+  font-size: 18px;
+  .textarea {
+    width: 33%;
+  }
+  .submit {
+    width: 10%;
+  }
+}
+
+.button {
+  composes: button from '../common/button'
+}
+
+.blog-span {
+  composes: subheading from '../common/typography'
+}
+
+.input {
+  /*composes: heading from '../common/typography';*/
+  composes: input from '../common/input';
+  width: 30%;
+  outline: none;
+}
