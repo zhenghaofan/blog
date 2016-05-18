@@ -20,6 +20,7 @@ class ArticleMain extends Component {
   }
 
   render() {
+    // console.log(this.props);
     const {articles} = this.props;
     return (
       <div className={cx('article-main')}>

@@ -1,7 +1,11 @@
 import {
   GET_ARTICLES_REQUEST,
   GET_ARTICLES_SUCCESS,
-  GET_ARTICLES_FAILURE } from 'types';
+  GET_ARTICLES_FAILURE,
+  CREATE_ARTICLE_REQUEST,
+  CREATE_ARTICLE_FAILURE,
+  // DESTROY_ARTICLE
+} from 'types';
 
 
 export default function article(state = {
@@ -29,10 +33,10 @@ export default function article(state = {
       return {
         articles: [...state.articles.filter((tp) => tp.title !== action.title)],
       };
-    case DESTROY_ARTICLE:
-      return {
-        articles: [...state.articles.filter((tp, i) => i !== action.index)],
-      };
+    // case DESTROY_ARTICLE:
+    //   return {
+    //     articles: [...state.articles.filter((tp, i) => i !== action.index)],
+    //   };
 
     default:
       return state;
