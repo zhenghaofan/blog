@@ -15,7 +15,7 @@ const Articles = ({articles}) => {
   return (
     <div className={cx('articles')}>
       <h1>Recent Articles</h1>
-      <ul>{articles}</ul>
+      <ul>{articleItems}</ul>
     </div>
   );
 };
