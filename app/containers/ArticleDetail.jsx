@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import classNames from 'classnames/bind';
 import Article from 'components/Article';
 import { fetchArticleByTitle } from 'actions/articles';
-import styles from 'css/components/article-main';
+
+import classNames from 'classnames/bind';
+import styles from 'css/components/article-detail';
 
 const cx = classNames.bind(styles);
 
@@ -11,9 +12,11 @@ class ArticleDetail extends Component {
 
   constructor(props) {
     super(props);
-    // console.log(props);
+  }
+
+  componentDidMount() {
     const { dispatch } = this.props
-    dispatch(fetchArticleByTitle(props.routeParams.title));
+    dispatch(fetchArticleByTitle(this.props.routeParams.title));
   }
 
   render() {
