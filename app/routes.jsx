@@ -4,6 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from 'containers/App';
 import Vote from 'containers/Vote';
 import ArticleMain from 'containers/ArticleMain';
+import ArticleDetail from 'containers/ArticleDetail';
 import CreateArticle from 'containers/CreateArticle'
 import About from 'containers/About';
 import LoginOrRegister from 'containers/LoginOrRegister';
@@ -41,6 +42,7 @@ export default (store) => {
       <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
       <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
       <Route path="createArticle" component={CreateArticle} onEnter={requireAuth} />
+      <Route path="article/:title" component={ArticleDetail} />
       <Route path="about" component={About} />
     </Route>
   );

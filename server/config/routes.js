@@ -57,6 +57,7 @@ export default (app) => {
   // article routes
   if (articlesController) {
     app.get('/article', articlesController.all);
+    // app.get('/article/:title', articlesController.getOne);
     app.post('/article/:title', articlesController.add);
     app.put('/article/:title', articlesController.update);
     app.delete('/article/:title', articlesController.remove);

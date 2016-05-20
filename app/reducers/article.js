@@ -2,6 +2,9 @@ import {
   GET_ARTICLES_REQUEST,
   GET_ARTICLES_SUCCESS,
   GET_ARTICLES_FAILURE,
+  GET_SINGLE_ARTICLE_REQUEST,
+  GET_SINGLE_ARTICLE_SUCCESS,
+  GET_SINGLE_ARTICLE_FAILURE,
   CREATE_ARTICLE_REQUEST,
   CREATE_ARTICLE_FAILURE,
   // DESTROY_ARTICLE
@@ -25,14 +28,23 @@ export default function article(state = {
       return Object.assign({}, state, {
         isFetching: false
       });
+    case GET_SINGLE_ARTICLE_REQUEST:
+      return {
+        articles: [...state.articles.filter((article) => article.title === action.title)]
+      };
+    case GET_SINGLE_ARTICLE_FAILURE:
+      return {
+        articles: [...state.articles]
+      };
     case CREATE_ARTICLE_REQUEST:
       return {
         articles: [...state.articles, { title: action.title, content: action.content }],
       };
     case CREATE_ARTICLE_FAILURE:
       return {
-        articles: [...state.articles.filter((tp) => tp.title !== action.title)],
+        articles: [...state.articles.filter((article) => article.title !== action.title)],
       };
+
     // case DESTROY_ARTICLE:
     //   return {
     //     articles: [...state.articles.filter((tp, i) => i !== action.index)],

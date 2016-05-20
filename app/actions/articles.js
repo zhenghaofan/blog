@@ -107,6 +107,13 @@ export function fetchArticles() {
   };
 }
 
+export function fetchArticleByTitle(title) {
+  return {
+    type: types.GET_SINGLE_ARTICLE,
+    promise: makeArticleRequest('get', title)
+  }
+}
+
 export function destroyArticle(title, index) {
   return dispatch => {
     dispatch(destroy(index));

@@ -15,6 +15,21 @@ export function all(req, res) {
   });
 }
 
+/*
+ * One Article
+ */
+export function getOne(req, res) {
+  Article.findOne({title: req.params.title}, (err, article) => {
+    if (err) {
+      console.log('Error in first query');
+      return res.status(500).send('Something went wrong getting the data');
+    }
+
+    // console.log(article);
+    return res.json(article);
+  })
+}
+
 /**
  * Add a Article
  */
