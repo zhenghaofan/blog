@@ -18,16 +18,13 @@ class ArticleDetail extends Component {
 
   render() {
     // console.log(this.props);
-    // const { dispatch } = this.props
-    console.log(this.props.articles);
+    const { article } = this.props
     return (
       <div className={cx('article-detail')}>
-        {/*
-        <h1>{this.props.title}</h1>
+        <h1>{article.title}</h1>
         <div className={cx('content')}>
-          {this.props.content}
+          {article.content}
         </div>
-        */}
       </div>
     );
   }
@@ -40,7 +37,7 @@ ArticleDetail.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    articles: state.article.articles,
+    article: state.article.article
   };
 }
 

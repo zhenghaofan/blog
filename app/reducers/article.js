@@ -28,10 +28,10 @@ export default function article(state = {
       return Object.assign({}, state, {
         isFetching: false
       });
-    case GET_SINGLE_ARTICLE_REQUEST:
-      return {
-        articles: [...state.articles.filter((article) => article.title === action.title)]
-      };
+    case GET_SINGLE_ARTICLE_SUCCESS:
+      return Object.assign({}, state, {
+        article: action.req.data
+      });
     case GET_SINGLE_ARTICLE_FAILURE:
       return {
         articles: [...state.articles]
