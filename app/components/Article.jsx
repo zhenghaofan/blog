@@ -13,10 +13,10 @@ export default class Article extends Component {
 
   render() {
     return (
-      <div>
+      <div className={cx('article')}>
         <Link to={"/article/" + this.props.title}>
           <h3>{this.props.title}</h3>
-          <div>
+          <div className={cx('content')}>
             {this.props.content}
           </div>
         </Link>

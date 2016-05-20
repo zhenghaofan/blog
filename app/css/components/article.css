@@ -1,0 +1,11 @@
+.article {
+  a {
+    text-decoration: none;
+  }
+  .content {
+    /*position:relative;*/
+    line-height:1.4em;
+    height:2.8em;
+    overflow:hidden;
+  }
+}
