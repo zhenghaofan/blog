@@ -22,20 +22,28 @@ class ArticleDetail extends Component {
   render() {
     // console.log(this.props);
     const { article } = this.props
+    let content
+    if (article) {
+      content = (
+        <div>
+          <h1>{article.title}</h1>
+          <div>
+          {article.content}
+          </div>
+        </div>
+      )
+    }
+
     return (
       <div className={cx('article-detail')}>
-        <h1>{article.title}</h1>
-        <div className={cx('content')}>
-          {article.content}
-        </div>
+        {content}
       </div>
     );
   }
 }
 
 ArticleDetail.propTypes = {
-  content: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  article: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -44,12 +52,4 @@ function mapStateToProps(state) {
   };
 }
 
-// const mapDispatchToProps = dispatch =>{
-//   return {
-//     actions: bindActionCreators(Actions, dispatch)
-//   }
-// }
-
-// Read more about where to place `connect` here:
-// https://github.com/rackt/react-redux/issues/75#issuecomment-135436563
 export default connect(mapStateToProps)(ArticleDetail);

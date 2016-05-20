@@ -42,8 +42,8 @@ export default (store) => {
       <Route path="login" component={LoginOrRegister} onEnter={redirectAuth} />
       <Route path="dashboard" component={Dashboard} onEnter={requireAuth} />
       <Route path="createArticle" component={CreateArticle} onEnter={requireAuth} />
-      <Route path="article/:title" component={ArticleDetail} />
       <Route path="about" component={About} />
+      <Route path="article/:title" component={ArticleDetail} />
     </Route>
   );
 };
