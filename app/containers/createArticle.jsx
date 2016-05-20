@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import ArticleForm from 'components/ArticleForm';
-import { createArticle } from 'actions/articles'
+import * as Actions from 'actions/articles'
 import classNames from 'classnames/bind'
 import styles from 'css/components/create-article'
 
@@ -18,11 +19,12 @@ class CreateArticle extends Component {
     super(props);
     // event handlers for MainSection component
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.actions = bindActionCreators(Actions, props.dispatch);
   }
 
   handleSubmit(article) {
-    const { dispatch } = this.props;
-    dispatch(createArticle(article.title, article.content));
+    // const { actions } = this.props;
+    this.actions.createArticle(article.title, article.content);
   }
 
   render() {
@@ -35,7 +37,13 @@ class CreateArticle extends Component {
   }
 };
 
-export default CreateArticle
+// const mapDispatchToProps = dispatch =>{
+//   return {
+//     actions: bindActionCreators(Actions, dispatch)
+//   }
+// }
+
+export default connect()(CreateArticle) //只注入dispatch
 
 // if needs data-fetching
 // function mapStateToProps(state) {

@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router'
+
 import classNames from 'classnames/bind';
 import styles from 'css/components/article';
 
@@ -12,10 +14,12 @@ export default class Article extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.title}</h3>
-        <div>
-          {this.props.content}
-        </div>
+        <Link to={"/article/" + this.props.title}>
+          <h3>{this.props.title}</h3>
+          <div>
+            {this.props.content}
+          </div>
+        </Link>
       </div>
     );
   }
