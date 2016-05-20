@@ -12,9 +12,10 @@ const cx = classNames.bind(styles);
 const About = () => {
   return (
     <div className={cx('about')}>
-      <h1 className={cx('header')}>About Billa</h1>
+      <h1 className={cx('header')}>About Billa's Blog</h1>
       <div className={cx('description')}>
-        <p>Billa's blog inspired by react-webpack-node<br />
+        <p>
+           This blog is inspired by react-webpack-node
         </p>
       </div>
     </div>

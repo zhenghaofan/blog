@@ -1,5 +1,5 @@
 {
-  "name": "Billa's blog",
+  "name": "Billa-blog",
   "version": "1.7.10",
   "description": "A simple Node.js app using Express 4 with Webpack, React, alt, ImmutableJS",
   "repository": "https://github.com/zhenghaofan/blog",
