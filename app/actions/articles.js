@@ -57,17 +57,16 @@ function createArticleDuplicate() {
 // which will get executed by Redux-Thunk mtitledleware
 // This function does not need to be pure, and thus allowed
 // to have stitlee effects, including executing asynchronous API calls.
-export function createArticle(content) {
+export function createArticle(title, content) {
   return (dispatch, getState) => {
     // If the content box is empty
     if (content.trim().length <= 0) return;
 
-    const title = md5.hash(content);
+    // const title = md5.hash(content);
     // Redux thunk's mtitledleware receives the store methods `dispatch`
     // and `getState` as parameters
     const { article } = getState();
     const data = {
-      count: 1,
       title,
       content
     };
